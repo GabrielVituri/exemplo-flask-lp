@@ -3,9 +3,9 @@ from flask import Flask, render_template, request, redirect, url_for
 app = Flask(__name__)
 
 pizzas = [
-    {"nome": "4 Queijos", "disponivel": False},
-    {"nome": "Marguerita", "disponivel": False},
-    {"nome": "Portuguesa", "disponivel": True},
+    {"nome": "4 Queijos", "disponivel": "Não"},
+    {"nome": "Marguerita", "disponivel": "Sim"},
+    {"nome": "Portuguesa", "disponivel": "Sim"},
 ]
 
 @app.route('/')
@@ -20,15 +20,15 @@ def create():
 def save():
     nome = request.form['nome']
     disponivel = request.form['disponivel']
-    { "nome": nome, "disponivel": True }
-    { "nome": nome, "disponivel": False }
-    pizzas.append(tarefa)
+    novo = {"nome": nome, "disponivel": disponivel}  
+    pizzas.append(novo)
+    
+    
+@app.route('/excluir', methods=['POST'])
+def excluir():
+    return redirect('https://5000-beige-spider-cgwqpr4p.ws-us18.gitpod.io/')
 
-    return redirect('https://5000-brown-lemur-kiu2j61j.ws-us18.gitpod.io/')
-
-#jsaisjdifdsfsa
-
-
+app.run(debug=True)
 
 # Implementar o DELETE!! (2,0 pontos)
 # Implementar uma pesquisa (3,0 pontos)

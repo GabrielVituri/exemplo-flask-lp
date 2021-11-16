@@ -13,28 +13,16 @@
 
             {% for pizzas in lista: %}
             <tr>
-                <td><input type="checkbox" id="myCheck" onmouseover="myFunction()">
 
-                    <script>
-                    function myFunction() {
-                    document.getElementById("myCheck").click();
-                    }
-                    </script></td> 
-
-                <td>{{ tarefa['nome'] }}</td>
-                <td>{{ tarefa['disponivel'] }} </td>
+                <td><a href="/excluir" title="Excluir"> {{ pizzas['nome'] }} </a></td>
+                <td>{{ pizzas['disponivel'] }} </td>
             </tr>
             {% endfor %}
-
-            
 
         </table>
 
         <a href="/create" class="btn btn-primary">Adicionar</a>
 
-        <a href="/" class="btn btn-danger">Excluir</a>
-
-         
     </div>
 
 </body>
