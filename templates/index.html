@@ -7,20 +7,34 @@
 
     <div class="container">
 
-        <h2>Lista de Tarefas</h2>
+        <h2>Lista de Pizzas</h2>
 
         <table class="table table-hover">
 
             {% for tarefa in lista: %}
             <tr>
-                <td>{{ tarefa['texto'] }}</td>
-                <td>{{ tarefa['concluida'] }} </td>
+                <td><input type="checkbox" id="myCheck" onmouseover="myFunction()">
+
+                    <script>
+                    function myFunction() {
+                    document.getElementById("myCheck").click();
+                    }
+                    </script></td> 
+
+                <td>{{ tarefa['nome'] }}</td>
+                <td>{{ tarefa['disponivel'] }} </td>
             </tr>
             {% endfor %}
+
+            
 
         </table>
 
         <a href="/create" class="btn btn-primary">Adicionar</a>
+
+        <a href="/" class="btn btn-danger">Excluir</a>
+
+         
     </div>
 
 </body>
