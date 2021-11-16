@@ -23,10 +23,10 @@ def save():
     novo = {"nome": nome, "disponivel": disponivel}  
     pizzas.append(novo)
     
-    
-@app.route('/excluir', methods=['POST'])
-def excluir():
-    return redirect('https://5000-beige-spider-cgwqpr4p.ws-us18.gitpod.io/')
+#@app.route('/excluir', methods=['POST'])
+#def excluir():
+#    return redirect('https://5000-beige-spider-cgwqpr4p.ws-us18.gitpod.io/')
+
 
 app.run(debug=True)
 
