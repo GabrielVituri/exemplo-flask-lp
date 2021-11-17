@@ -24,17 +24,16 @@ def save():
     pizzas.append(novo)
     return redirect('https://5000-beige-spider-cgwqpr4p.ws-us18.gitpod.io/')
     
-@app.rout('/deletar')
+@app.route('/deletar')
 def deletar():
     return render_template('deletar.html')
 
 @app.route('/excluir')
 def excluir():  
-    excluir = ['indice']
+    excluir = request.form['excluir']
     for pizza in pizzas:
         if excluir == pizzas['nome']:
             pizzas.remove(pizza['nome'])
-
     return redirect('https://5000-beige-spider-cgwqpr4p.ws-us18.gitpod.io/') 
 
 
