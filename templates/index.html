@@ -13,7 +13,7 @@
 
             {% for pizzas in lista: %}
             <tr>
-                <td><a href="/excluir" title="Excluir"> {{ pizzas['nome'] }} </a></td>
+                <td> {{ pizzas['nome'] }} </td>
                 <td>{{ pizzas['disponivel'] }} </td>
             </tr>
             {% endfor %}
@@ -21,6 +21,7 @@
         </table>
 
         <a href="/create" class="btn btn-primary">Adicionar</a>
+        <a href="/deletar" class="btn btn-primary">Excluir</button>
 
     </div>
 
