@@ -9,22 +9,20 @@
 
         <h2>Nova Pizza</h2>
 
-        <form action="/save" method="POST">
-            <input type="text" class="form-control" name="nome"/>
-
-            <label for="disponivel">Disponivel:</label>
-
-            <select name="disponivel" id="disponivel">
+    <form action="/save" method="POST">
+        <input type="text" class="form-control" name="nome"/>
+        <label for="disponivel">Disponivel:</label>
+        <select name="disponivel" id="disponivel">
             <option value="Sim">Sim</option>
             <option value="Não">Não</option>
-            </select>
+        </select>
+        <button class="btn btn-primary">Salvar</button>
+    </form>
 
-            <button class="btn btn-primary">Salvar</button>
-        </form>
+    <br/> 
 
-        <br/>
-        
         <a href="/" class="btn btn-danger">Voltar</a>
+        
     </div>
 
 </body>
