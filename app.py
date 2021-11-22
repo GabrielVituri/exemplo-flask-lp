@@ -18,24 +18,33 @@ def create():
 
 @app.route('/save', methods=['POST'])
 def save():
-    nome = requests.get['nome']
+    nome = request.form['nome']
     disponivel = request.form['disponivel']
     novo = {"nome": nome, "disponivel": disponivel}  
     pizzas.append(novo)
-    return redirect('https://5000-beige-spider-cgwqpr4p.ws-us18.gitpod.io/')
+    return redirect('https://5000-beige-spider-cgwqpr4p.ws-us17.gitpod.io/')
     
 @app.route('/deletar')
 def deletar():
     return render_template('deletar.html')
 
-@app.route('/excluir')
+@app.route('/excluir', methods=['POST'])
 def excluir():  
     excluir = request.form['excluir']
-    for pizza in pizzas:
-        if excluir == pizzas['nome']:
-            pizzas.remove(pizza['nome'])
-    return redirect('https://5000-beige-spider-cgwqpr4p.ws-us18.gitpod.io/') 
+    excluir = int(excluir)
+    if excluir <= len(pizzas) and excluir > 0:
+        del pizzas[excluir-1]
 
+    return redirect('https://5000-beige-spider-cgwqpr4p.ws-us17.gitpod.io/') 
+
+@app.route('/buscar', methods=['POST'])
+def buscar():
+    lista = []
+    buscar = request.form['buscar']
+    for pizza in pizzas:
+        if buscar in pizza['nome']:
+            lista.append(pizza)
+    return render_template('buscar.html', lista=lista)
 
 app.run(debug=True)
 
