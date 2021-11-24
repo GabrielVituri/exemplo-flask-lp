@@ -1,7 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
 
-import ctypes
-
 app = Flask(__name__)
 
 # Lista
@@ -30,24 +28,6 @@ def save():
     pizzas.append(novo)
     return redirect('https://5000-beige-spider-cgwqpr4p.ws-us17.gitpod.io/')
 
-# Chamar deletar
-@app.route('/deletar')
-def deletar():
-    return render_template('deletar.html')
-
-# Deletar pizza (indice)
-@app.route('/excluir', methods=['POST'])
-def excluir():  
-    excluir = request.form['excluir']
-    excluir = int(excluir)
-    if excluir <= len(pizzas) and excluir > 0:
-        del pizzas[excluir-1]
-        return redirect('https://5000-beige-spider-cgwqpr4p.ws-us17.gitpod.io/') 
-
-    if excluir == "":
-        return render_template('create.html')  
-        
-
 # Buscar pizza (nome)
 @app.route('/buscar', methods=['POST'])
 def buscar():
@@ -58,7 +38,20 @@ def buscar():
             lista.append(pizza)
     return render_template('buscar.html', lista=lista)
 
-app.run(debug=True)
+# Chamar deletar
+@app.route('/deletar')
+def deletar():
+    return render_template('deletar.html')
 
-# Implementar o DELETE!! (2,0 pontos)
-# Implementar uma pesquisa (3,0 pontos)
+# Deletar pizza (indice)
+@app.route('/excluir', methods=['POST'])
+def excluir():  
+    excluir = request.form['excluir']
+    if excluir > '':
+        excluir = int(excluir)
+        if excluir <= len(pizzas) and excluir > 0:
+            del pizzas[excluir-1]
+            return redirect('https://5000-beige-spider-cgwqpr4p.ws-us17.gitpod.io/') 
+    return render_template('erro.html')
+
+app.run(debug=True)
