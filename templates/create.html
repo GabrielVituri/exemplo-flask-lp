@@ -7,22 +7,25 @@
 
     <div class="container">
 
-        <h2>Nova Pizza</h2>
+        <h2 align='center'>Nova Pizza</h2>
+        <br/>
 
     <form action="/save" method="POST">
+        <h5>Nome da Pizza:</h5> 
         <input type="text" class="form-control" name="nome"/>
-        <label for="disponivel">Disponivel:</label>
+        <br/>
+        <label for="disponivel"><h5>Pizza disponivel?</h5></label>
         <select name="disponivel" id="disponivel">
             <option value="Sim">Sim</option>
             <option value="Não">Não</option>
+            
         </select>
-        <button class="btn btn-primary">Salvar</button>
-    </form>
-
-    <br/> 
-
+        <br/>
+        <br/>
+        <button class="btn btn-primary">Salvar Pizza</button>
         <a href="/" class="btn btn-danger">Voltar</a>
         
+    </form> 
     </div>
 
 </body>
